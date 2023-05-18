@@ -33,8 +33,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            ls
-            source env/bin/activate
+            source ~/.devops/bin/activate
             make install
       - save_cache:
           paths:
