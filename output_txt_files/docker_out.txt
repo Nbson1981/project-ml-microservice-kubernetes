@@ -1,1 +1,20 @@
-<paste log output from Docker prediction, here>
+2023-05-18 21:04:17  * Serving Flask app "app" (lazy loading)
+2023-05-18 21:04:17  * Environment: production
+2023-05-18 21:04:17    WARNING: Do not use the development server in a production environment.
+2023-05-18 21:04:17  * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+2023-05-18 21:04:17  * Restarting with stat
+2023-05-18 21:04:22  * Debugger is active!
+2023-05-18 21:04:22  * Debugger PIN: 496-741-671
+2023-05-18 21:04:17    Use a production WSGI server instead.
+2023-05-18 21:04:17  * Debug mode: on
+2023-05-18 21:05:25 [2023-05-18 14:05:25,171] INFO in app: JSON payload: 
+2023-05-18 21:05:25 {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+2023-05-18 21:05:25 [2023-05-18 14:05:25,195] INFO in app: Inference payload DataFrame: 
+2023-05-18 21:05:25    CHAS     RM    TAX  PTRATIO      B  LSTAT
+2023-05-18 21:05:25 0     0  6.575  296.0     15.3  396.9   4.98
+2023-05-18 21:05:25 [2023-05-18 14:05:25,211] INFO in app: Scaling Payload: 
+2023-05-18 21:05:25    CHAS     RM    TAX  PTRATIO      B  LSTAT
+2023-05-18 21:05:25 0     0  6.575  296.0     15.3  396.9   4.98
+2023-05-18 21:05:25 [2023-05-18 14:05:25,216] INFO in app: the scaled input: [[0. 0. 0. 0. 0. 0.]]
+2023-05-18 21:05:25 [2023-05-18 14:05:25,218] INFO in app: The resultant prediction: [20.35373177134412]
+2023-05-18 21:05:25 172.17.0.1 - - [18/May/2023 14:05:25] "POST /predict HTTP/1.1" 200 -
