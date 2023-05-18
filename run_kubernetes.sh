@@ -1,31 +1,20 @@
 #!/usr/bin/env bash
-# This file tags and uploads an image to Docker Hub
 
-# Assumes that an image is built via `run_docker.sh`
+# This tags and uploads an image to Docker Hub
 
 # Step 1:
-# Create docker_path
+# This is your Docker ID/path
 docker_path=nguyenbason
-source .env
 
-# Step 2:  
-# Authenticate & tag
-echo "Docker ID and Image: $docker_path"
-echo "$MY_PASSWORD" | docker login --username $docker_path --password-stdin
-image_tagged=$(docker image list --filter=reference="$docker_path/project-ml" | grep 'project-ml' | xargs)
-if [[ -n $image_tagged ]]; then
-  echo "Image already tagged, remove the tagged image."
-  name=$(echo "$image_tagged" | cut -f 1 -d " ")
-  tag=$(echo "$image_tagged" | cut -f 2 -d " ")
-  docker image remove --force "$name":"$tag"
-fi
+# Step 2
+# Run the Docker Hub container with kubernetes
+kubectl create deploy project-ml-microservice-kubernetes --image="$docker_path/project-ml:v1.0.0"
 
-image_info=$(docker image list | grep 'project-ml' | xargs)
-image_name=$(echo "$image_info" | cut -f 1 -d " ")
-image_tag=$(echo "$image_info" | cut -f 2 -d " ")
-docker image tag "$image_name:$image_tag" "$docker_path/$image_name:$image_tag"
-docker image list --filter=reference="$docker_path/project-ml"
 
 # Step 3:
-# Push image to a docker repository
-docker image push "$docker_path/project-ml:$image_tag"
+# List kubernetes pods
+kubectl get pods
+
+# Step 4:
+# Forward the container port to a host
+kubectl port-forward deployment.apps/project-ml-microservice-kubernetes 8000:80
