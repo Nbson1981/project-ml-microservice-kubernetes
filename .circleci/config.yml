@@ -34,7 +34,7 @@ jobs:
           name: install dependencies
           command: |
             ls
-            . .devops/bin/activate
+            source env/bin/activate
             make install
       - save_cache:
           paths:
@@ -45,7 +45,6 @@ jobs:
       - run:
           name: run tests
           command: |
-
             . .devops/bin/activate
             make test
       # run lints!
