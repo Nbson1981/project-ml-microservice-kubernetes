@@ -28,6 +28,7 @@ jobs:
       - run:
           name: create virtualenv
           command: |
+            ls
             cd project-ml-microservice-kubernetes
             make setup
 
