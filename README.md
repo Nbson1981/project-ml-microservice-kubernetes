@@ -49,4 +49,4 @@ source .devops/bin/activate
 * Create Flask app in Container
 * Run via kubectl
 
-[![CircleCI](https://circleci.com/gh/Nbson1981/project-ml-microservice-kubernetes.svg?style=svg)](https://circleci.com/gh/Nbson1981/project-ml-microservice-kubernetes)
+[![CircleCI](https://circleci.com/gh/Nbson1981/tree/ circleci-project-setup/project-ml-microservice-kubernetes.svg?style=svg)](https://circleci.com/gh/Nbson1981/tree/ circleci-project-setup/project-ml-microservice-kubernetes)
